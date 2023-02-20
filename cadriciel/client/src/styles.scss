@@ -1,0 +1,88 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@fortawesome/fontawesome-free/css/all.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import '~@angular/material/theming';
+
+
+@include mat-core();
+
+
+$app-primary: mat-palette($mat-grey, 500, 300, 700);
+$app-accent:  mat-palette($mat-blue-grey);
+$app-warn:    mat-palette($mat-red);
+$app-theme:  mat-light-theme($app-primary, $app-accent, $app-warn);
+
+$dark-primary: mat-palette($mat-blue-grey);
+$dark-accent:  mat-palette($mat-amber, A200, A100, A400);
+$dark-warn:    mat-palette($mat-deep-orange);
+$dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+.light-theme {
+    @include angular-material-theme($app-theme);
+}
+
+.dark-theme {
+    @include angular-material-theme($dark-theme);
+}
+
+$primary: mat-color($app-primary);
+$primary-lighter: mat-color($app-primary, lighter);
+$primary-darker: mat-color($app-primary, darker);
+
+$accent: mat-color($app-accent);
+$accent-lighter: mat-color($app-accent, lighter);
+$accent-darker: mat-color($app-accent, darker);
+$warn: mat-color($app-warn);
+
+
+*{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.main-body{
+    margin: 0px;
+    height: 100vh;
+    width: 100vw;
+}
+
+html {
+    overflow: hidden;
+}
+
+
+::ng-deep .mat-tooltip.lateral-bar {
+    background-color : $accent-darker!important;
+    font-size: 16px;
+}
+
+.fa-lg {
+    color: black;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    color: black;
+    display: block;
+    font-size: 1.24em;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+label {
+    color: rgba(0,0,0,.8);
+}
+
+.pannel {
+    color: rgba(0,0,0,.8);
+}
+.mat-dialog-actions{
+    justify-content: space-between;
+    justify-self: flex-end;
+    margin-top: 50px;
+}
+.mat-dialog-content{
+    margin-top: 25px!important;
+}

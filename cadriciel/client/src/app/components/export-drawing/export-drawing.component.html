@@ -1,0 +1,18 @@
+<div>
+    <div mat-dialog-title>Export</div>
+        <div class="form-row">
+          <label>  Name  </label>
+          <input #name type= "text" />
+        </div>
+    <div class='export-buttons'>
+      <button mat-button (click)="exportImage(name.value, '.svg')"> as .SVG </button>
+      <button mat-button (click)="exportImage(name.value, '.png')"> as .PNG </button>
+      <button mat-button (click)="exportImage(name.value, '.jpeg')"> as .JPEG </button>
+      <button mat-button (click)="exportImage(name.value, '.bmp')"> as .BMP </button>
+    </div>
+
+    <div mat-dialog-actions>
+        <button mat-button (click)="closeDialog()">Cancel</button>
+    </div>
+</div>
+

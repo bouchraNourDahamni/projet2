@@ -1,0 +1,41 @@
+<div matDialogClass="flex-container">
+    <div class= "icon-bottom">
+        <button mat-button (click)="openNewDrawing()"
+        matTooltip="New"
+        matTooltipPosition="right"
+        matTooltipClass="lateral-bar"><i class="fas fa-plus fa-lg" ></i></button>
+    </div>
+    <div class= "icon-bottom">
+        <button mat-button (click)="save()"
+        matTooltip="Save"
+        matTooltipPosition="right"
+        matTooltipClass="lateral-bar">  <i class="far fa-save fa-lg"></i></button>
+    </div>
+    <div class= "icon-bottom"
+    matTooltip="Open"
+    matTooltipPosition="right"
+        matTooltipClass="lateral-bar">
+        <button mat-button [matMenuTriggerFor]="drawingMenu">
+            <i class="fas fa-wallet fa-lg"></i>
+        </button>
+        <mat-menu #drawingMenu="matMenu">
+            <button mat-menu-item  (click)="openLocalDrawing()">Open File</button>
+            <button mat-menu-item (click)="openDrawing()">Open from Gallery</button>
+        </mat-menu>
+    </div>
+    <div class= "icon-bottom"
+    matTooltip="Export"
+    matTooltipPosition="right"
+        matTooltipClass="lateral-bar">
+        <button mat-button (click)="exportDrawing()"><i class="fas fa-file-export fa-lg"></i></button>
+    </div>
+    <div class= "icon-bottom">
+    <button mat-button
+    matTooltip="User Guide"
+    matTooltipPosition="right"
+    (click)="openUserGuide()"
+        matTooltipClass="lateral-bar">
+        <i class="fa fa-question-circle" aria-hidden="true"></i>
+    </button>
+   </div>
+</div>

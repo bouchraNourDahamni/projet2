@@ -1,0 +1,27 @@
+<div>
+  <h3> Grid </h3>
+  <mat-checkbox labelPosition='before' (change)="onToggleGrid()" [(ngModel)] = "gridIsVisible">Show grid</mat-checkbox>
+  <br>
+  <br>
+  <label>Grid size: </label> {{grid}}
+  <mat-slider
+    thumbLabel
+    tickInterval="{{sliderTickInterval}}"
+    min="{{minSliderValue}}"
+    max="{{maxSliderValue}}"
+    #size
+    value="{{grid}}"
+    (input)="setSize(size.value)">
+  </mat-slider>
+  <label>Transparency: </label> {{transparency.value}}
+  <mat-slider
+    thumbLabel
+    tickInterval="{{sliderTickIntervalTransparency}}"
+    min="{{minSliderValueTrasparency}}"
+    max="{{maxSliderValueTransparency}}"
+    [step]="sliderStepValue"
+    #transparency
+    (input)="setTransparency(transparency.value)"
+    value="1">
+  </mat-slider>
+</div>

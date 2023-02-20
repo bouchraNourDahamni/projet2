@@ -1,0 +1,25 @@
+<div>
+  <h3> Calligraphy </h3>
+  <label> Length: </label> {{length}}px
+  <mat-slider
+    thumbLabel
+    tickInterval="{{sliderTickInterval}}"
+    min="{{minLengthSliderValue}}"
+    max="{{maxLengthSliderValue}}"
+    value="{{length}}"
+    #featherLengthSlider
+    (input)="setFeatherLength(featherLengthSlider.value)">
+  </mat-slider>
+  <br>
+  <label> Rotation: </label> {{angle}}
+  <mat-slider
+    thumbLabel
+    tickInterval="{{sliderAngleTickInterval}}"
+    min="{{minScaleSliderValue}}"
+    max="{{maxScaleSliderValue}}"
+    [step]='sliderAngleStep'
+    value="{{angle}}"
+    #featherAngleSlider
+    (input)="setAngle(featherAngleSlider.value)">
+  </mat-slider>
+</div>

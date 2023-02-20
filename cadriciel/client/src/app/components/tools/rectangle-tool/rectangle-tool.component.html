@@ -1,0 +1,60 @@
+<div>
+  <h3> Rectangle </h3>
+  <label> Line width: </label> {{width}}px
+  <mat-slider
+    thumbLabel
+    tickInterval="{{sliderTickInterval}}"
+    min="{{minSliderValue}}"
+    max="{{maxSliderValue}}"
+    value= "{{width}}"
+    #linewidthSlider (input)="setLinewidth(linewidthSlider.value)">
+  </mat-slider><br>
+  <label id="type-radio-group-label">Outline</label>
+  <mat-radio-group
+    aria-labelledby="type-radio-group-label"
+    class="mat-radio-group"
+    [(ngModel)]="activeType">
+    <mat-radio-button
+      class="mat-radio-button"
+      value="default"
+      (input)="setLineTexture('default')">
+      Default
+    </mat-radio-button>
+    <mat-radio-button
+      class="mat-radio-button"
+      value="round"
+      (input)="setLineTexture('round')">
+      Round-linecap
+    </mat-radio-button>
+    <mat-radio-button
+      class="mat-radio-button"
+      value="dash"
+      (input)="setLineTexture('dash')">
+      Dash-array
+    </mat-radio-button>
+  </mat-radio-group>
+  <label id="type-radio-group-label">Mode</label>
+  <mat-radio-group
+    aria-labelledby="type-radio-group-label"
+    class="mat-radio-group"
+    [(ngModel)]="activeMode">
+    <mat-radio-button
+      class="mat-radio-button"
+      value="outline"
+      (input)="setMode('outline')">
+      Outline Only
+    </mat-radio-button>
+    <mat-radio-button
+      class="mat-radio-button"
+      value="full"
+      (input)="setMode('full')">
+      Full only
+    </mat-radio-button>
+    <mat-radio-button
+      class="mat-radio-button"
+      value="both"
+      (input)="setMode('both')">
+      Outline and full
+    </mat-radio-button>
+  </mat-radio-group>
+</div>

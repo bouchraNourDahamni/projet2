@@ -1,0 +1,115 @@
+<div class="workspace">
+  <div class="cursor" [style.left]="eraserLeft" [style.top]="eraserTop"
+                      [style.margin-left]="eraserMarginLeft" [style.margin-top]="eraserMarginTop"
+                      [style.width]="eraserWidth" [style.height]="eraserHeight"
+                      [style.border-color]="eraserBorderColor" [style.visibility]='eraserVisibility'>
+  </div>
+  <div #myWorkspace>
+    <svg #drawing ng-attr-x="0" ng-attr-y="0"
+        [attr.width.px]="workspaceWidth"  [attr.height.px]="workspaceHeight" [attr.fill]="background"
+        (mousedown)="onMouseDown($event)"
+        (mouseup)="onMouseUp($event)"
+        (mousemove)="onMouseMove($event)"
+        (dblclick)="onDoubleClick($event)"
+        (mousewheel)="onMouseWheel($event)"
+        xmlns="http://www.w3.org/2000/svg"
+        [ngClass]= "{'cursor-eraser': toolSelected==='eraser', 
+                     'cursor-line': toolSelected==='line',
+                     'cursor-text': toolSelected==='text',
+                     'cursor-stamp': toolSelected==='stamp',
+                     'cursor-pencil': toolSelected==='pencil' || toolSelected==='brush',
+                     'cursor-pen': toolSelected==='pen',
+                     'cursor-feather': toolSelected==='feather',
+                     'cursor-aerosol': toolSelected==='aerosol',
+                     'cursor-shape': toolSelected==='rectangle' || toolSelected==='ellipse' || toolSelected==='polygon',
+                     'cursor-selection': toolSelected==='selection',
+                     'cursor-colorBucket': toolSelected==='colorBucket',
+                     'cursor-pipette': toolSelected==='pipette',
+                     'cursor-wait': isWaiting
+                    }"
+      >
+      <rect class="SVGBackground" ng-attr-x="0" ng-attr-y="0" [attr.fill]="background" fill-opacity = "1"
+            [attr.width.px]="workspaceWidth"  [attr.height.px]="workspaceHeight"/>
+      <defs>
+        <filter id="brush-texture1" filterUnits="userSpaceOnUse"
+          x="0px" y="0px" width="100%" height="100%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+        </filter>
+
+        <filter id="brush-texture2" filterUnits="userSpaceOnUse"
+          x="0px" y="0px" width="100%" height="100%">
+          <feTurbulence result="turbulence" baseFrequency="0.08"
+            numOctaves="1" seed="1" />
+          <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="4" />
+        </filter>
+
+        <filter id="brush-texture3" filterUnits="userSpaceOnUse"
+          x="0px" y="0px" width="100%" height="100%">
+          <feTurbulence result="outlineNoise" baseFrequency="0.9"
+            numOctaves="1" seed="1" type="fractalNoise" />
+          <feDisplacementMap in="SourceGraphic" in2="outlineNoise" result="outline" scale="10" />
+          <feTurbulence type="fractalNoise" baseFrequency='0.7' result='textureNoise' numOctaves="5" />
+          <feColorMatrix type="matrix" values=
+            "0 0 0 0 0,
+            0 0 0 0 0,
+            0 0 0 0 0,
+            0 0 0 -0.9 1.2"
+            in="textureNoise" result="texture" />
+          <feComposite in="outline" in2="texture" operator="in"/>
+        </filter>
+
+        <filter id="brush-texture4" filterUnits="userSpaceOnUse"
+          x="0px" y="0px" width="100%" height="100%">
+          <feTurbulence result="outlineNoise" baseFrequency="0.2"
+            numOctaves="1" seed="1" type="turbulence" />
+          <feDisplacementMap in="SourceGraphic" in2="outlineNoise" result="outline" scale="10" />
+          <feGaussianBlur in="outline" result="outline2" stdDeviation="1" />
+          <feTurbulence type="turbulence" baseFrequency='0.15' result='textureTurb' numOctaves="2" />
+          <feColorMatrix type="matrix" values=
+            "0 0 0 0 0,
+            0 0 0 0 0,
+            0 0 0 0 0,
+            0 0 0 -0.9 1.1"
+            in="textureTurb" result="texture" />
+          <feComposite in="outline2" in2="texture" operator="in"/>
+        </filter>
+
+        <filter id="brush-texture5" filterUnits="userSpaceOnUse"
+          x="0px" y="0px" width="100%" height="100%">
+          <feTurbulence result="noiseOutline" baseFrequency="0.5"
+            numOctaves="1" seed="1" type="turbulence" />
+          <feDisplacementMap in="SourceGraphic" in2="noiseOutline" result="outline1" scale="5" />
+          <feGaussianBlur in="outline1" result="outline2" stdDeviation="1" />
+          <feTurbulence type="fractalNoise" baseFrequency='0.18' result='noiseTexture' numOctaves="2" />
+          <feColorMatrix type="matrix" values=
+            "0 0 0 0 0,
+            0 0 0 0 0,
+            0 0 0 0 0,
+            0 0 0 -0.9 1.25"
+            in="noiseTexture" result="texture1" />
+          <feComposite in="outline2" in2="texture1" result="layer1" operator="in"/>
+
+          <feTurbulence result="turb2" baseFrequency="0.1"
+            numOctaves="1" seed="1" type="turbulence" />
+          <feDisplacementMap in="SourceGraphic" in2="turb2" result="layer2" scale="5" />
+
+          <feComposite in="layer1" in2="layer2" operator="in"/>
+        </filter>
+        <style type="text/css">@import url('https://fonts.googleapis.com/css?family=Lato|Oswald|Raleway|Roboto|Gamja+Flower');</style>
+
+        <filter id="eraser-filter" filterUnits="userSpaceOnUse" x="0px" y="0px" width="100%" height="100%">
+          <!--taken from https://tympanus.net/codrops/2019/01/22/svg-filter-effects-outline-text-with-femorphology/-->
+          <feMorphology in="SourceAlpha" result="DILATED" operator="dilate" radius="4"></feMorphology>
+          <feFlood flood-color="#FF0000" flood-opacity="1" result="RED"></feFlood>
+          <feComposite in="RED" in2="DILATED" operator="in" result="OUTLINE"></feComposite>
+          <feMerge>
+            <feMergeNode in="OUTLINE"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <g #anchorSVG></g>
+      <g #anchorGrid class="grid"></g>
+    </svg>
+  </div>
+</div>

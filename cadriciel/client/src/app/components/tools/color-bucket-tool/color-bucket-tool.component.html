@@ -1,0 +1,47 @@
+<div>
+  <h3> Color Bucket </h3>
+  <label> Tolerance </label>
+  <mat-slider
+    thumbLabel
+    tickInterval="{{sliderTickInterval}}"
+    min="{{minSliderToleranceValue}}"
+    max="{{maxSliderToleranceValue}}"
+    value="{{tolerance}}"
+    #toleranceSlider (input)="setColorTolerance(toleranceSlider.value)">
+  </mat-slider>
+  <br>
+  <label> Outline Width </label>
+  <mat-slider
+    thumbLabel
+    tickInterval="{{sliderTickInterval}}"
+    min="{{minSliderOutlineValue}}"
+    max="{{maxSliderOutlineValue}}"
+    value="{{width}}"
+    #outlineWidthSlider (input)="setOutlineWidth(outlineWidthSlider.value)">
+  </mat-slider>
+  <br>
+  <label id="type-radio-group-label">Mode</label>
+  <mat-radio-group
+    aria-labelledby="type-radio-group-label"
+    class="mat-radio-group"
+    [(ngModel)]="activeMode">
+    <mat-radio-button
+      class="mat-radio-button"
+      value="outline"
+      (input)="setMode('outline')">
+      Outline Only
+    </mat-radio-button>
+    <mat-radio-button
+      class="mat-radio-button"
+      value="full"
+      (input)="setMode('full')">
+      Full only
+    </mat-radio-button>
+    <mat-radio-button
+      class="mat-radio-button"
+      value="both"
+      (input)="setMode('both')">
+      Outline and full
+    </mat-radio-button>
+  </mat-radio-group>
+</div>

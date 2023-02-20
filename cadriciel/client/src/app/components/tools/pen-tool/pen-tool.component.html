@@ -1,0 +1,22 @@
+<div>
+  <h3> Pen </h3>
+  <label> Min line width: </label> {{width}}px
+  <mat-slider
+    thumbLabel
+    tickInterval="{{sliderTickLinewidthMinInterval}}"
+    min="{{minSliderLinewidthMinValue}}"
+    max="{{maxSliderLinewidthMinValue}}"
+    value="{{width}}"
+    #linewidthMinSlider (input)="setLineWidthMin(linewidthMinSlider.value)">
+  </mat-slider>
+  <br>
+  <label> Max line width: </label> {{line}}px
+  <mat-slider
+    thumbLabel
+    tickInterval="{{sliderTickLinewidthMaxInterval}}"
+    min="{{minSliderLinewidthMaxValue}}"
+    max="{{maxSliderLinewidthMaxValue}}"
+    value="{{line}}"
+    #linewidthMaxSlider (input)="setLineWidthMax(linewidthMaxSlider.value)">
+  </mat-slider>
+</div>

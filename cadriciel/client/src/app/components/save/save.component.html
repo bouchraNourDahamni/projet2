@@ -1,0 +1,14 @@
+<div class='save-container'>
+    <h2> Save Drawing </h2>
+    <div class='save-actions'>
+        <div>
+            <button mat-button (click)="closeDialog()">Cancel</button>
+        </div>
+        <div class='save-confirm-actions'>
+            <button mat-button (click)="openSaveLocal()">Download</button>
+            <button mat-button class='main-action' cdkFocusInitial (click)="openSaveServer()">Add to Gallery</button>
+        </div>
+        
+    </div>
+
+</div>

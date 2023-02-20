@@ -1,0 +1,23 @@
+<div class="pannel" [ngSwitch]="tool">
+    <app-pencil-tool *ngSwitchCase="'pencil'"></app-pencil-tool>
+    <app-brush-tool *ngSwitchCase="'brush'"></app-brush-tool>
+    <app-pen-tool *ngSwitchCase="'pen'"></app-pen-tool>
+    <app-feather-tool *ngSwitchCase="'feather'"></app-feather-tool>
+    <app-aerosol-tool *ngSwitchCase="'aerosol'"></app-aerosol-tool>
+
+    <app-rectangle-tool *ngSwitchCase="'rectangle'"></app-rectangle-tool>
+    <app-ellipse-tool *ngSwitchCase="'ellipse'"></app-ellipse-tool>
+    <app-polygon-tool *ngSwitchCase="'polygon'"></app-polygon-tool>
+
+    <app-selection-tool *ngSwitchCase="'selection'">Selection</app-selection-tool>
+
+    <h3 *ngSwitchCase="'colorApplicator'">Color Applicator</h3>
+    <app-color-bucket-tool *ngSwitchCase="'colorBucket'"></app-color-bucket-tool>
+
+    <app-eraser-tool *ngSwitchCase="'eraser'"></app-eraser-tool>
+    <app-text-tool *ngSwitchCase="'text'"></app-text-tool>
+    <h3 *ngSwitchCase="'pipette'">Eye-Dropper</h3>
+    <app-line-tool *ngSwitchCase="'line'"></app-line-tool>
+    <app-stamp-tool *ngSwitchCase="'stamp'"></app-stamp-tool>
+    <app-grid-tool *ngSwitchCase="'grid'"></app-grid-tool>
+</div>

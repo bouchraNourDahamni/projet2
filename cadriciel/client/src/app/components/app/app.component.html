@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="flex-container transparent-scrollbar scrollbox lateral-bar">
+        <div>
+            <app-lateral-bar-top></app-lateral-bar-top>
+        </div>
+        <div>
+            <app-lateral-bar-bottom></app-lateral-bar-bottom>
+        </div>
+    </div>
+    <div class="flex-container transparent-scrollbar scrollbox pannel">
+        <div *ngIf = "showHtmlDiv">
+            <app-pannel></app-pannel>
+        </div>
+        <div *ngIf = "showHtmlDiv" >
+            <app-color-selector></app-color-selector>
+        </div>
+    </div>
+    <div *ngIf = "showHtmlDiv " class="workspace border-left" #workspace>
+      <app-workspace></app-workspace>
+    </div>
+    <div *ngIf = "openUserGuide" ><app-user-guide> </app-user-guide> </div>
+</div>
+

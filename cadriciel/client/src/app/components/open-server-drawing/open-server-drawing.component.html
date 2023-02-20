@@ -1,0 +1,57 @@
+<div>
+  <b>Here are the pictures you have saved:</b><br><br>
+  <div *ngIf = 'loading' class="loading-screen-wrapper">
+    <div class="loading-screen-icon">
+      Loading...
+    </div>
+  </div>
+  <div class="display">
+    <div  class="modal">
+      <div class="thumbnail-container">
+        <div *ngFor="let i of drawingToRenderer ">
+          <div class="thumbnail">
+             <div>
+              <div class="example-button-row">
+                <button (click)="deleteDrawing()" mat-raised-button  color="warn" >delete</button>
+                </div>
+              </div>
+            <p> {{i.imageName}}</p>
+            <p>tag : {{i.imageTags}} </p>
+            <button class = button (click) = 'getImage(i)'>
+              <svg viewBox="0 0 900 900" [innerHTML]="i.image"></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button mat-stroked-button	(click)=" openDrawing()"> open Drawing </button>
+      </div>
+      <div class="filters">
+          <div [formGroup] = "tagForm">
+              <div class="form-row">
+                <div class="form-group col">
+                  <label> Filter by Tag </label>
+                  <input type= "text " formControlName = "tagControl" class = "form-control"  [ngClass]="{ 'is-invalid': tagForm.get('tagControl').errors}" />
+                    <div *ngIf =  "tagForm.get('tagControl').touched && tagForm.get('tagControl').errors"  class="alert alert-danger"  >
+                    <div *ngIf= "tagForm.get('tagControl').errors.minlength" class="alert alert-danger"> Tag must be at least 3 characters</div>
+                    <div *ngIf= "tagForm.get('tagControl').errors.maxlength" class="alert alert-danger"> Tag must be at most 10 characters</div>
+                    </div>
+                    <button mat-button (click)="addTag()"> <i class="fa fa-plus" aria-hidden="true"> </i>  </button>
+
+                </div>
+                <div class="form-group col">
+
+                </div>
+              </div>
+              <mat-select placeholder="Or Select Tags"  formControlName ="tagsControl" multiple  class="form-control">
+                <mat-option *ngFor= "let tag of tagList" [value]="tag">{{tag}}</mat-option>
+              </mat-select>
+            </div>
+            <div>  <button mat-stroked-button	(click)="sendFilterChoice()"> Search  </button> </div>
+      </div>
+
+      <div mat-dialog-actions>  <button mat-button	(click)="closeDialog()"> Cancel  </button> </div>
+    </div>
+  </div>
+</div>
+

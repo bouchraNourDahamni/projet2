@@ -1,0 +1,20 @@
+<div>
+  <div>Save Drawing</div>
+  <div  mat-dialog-content>
+    <div [formGroup] = "imageForm">
+      <div class="form-row">
+        <label>  Name  </label> 
+        <input type= "text " formControlName = "nameControl" class = "form-control"  [ngClass]="{ 'is-invalid': imageForm.get('nameControl').errors}" /> 
+          <div *ngIf=" imageForm.get('nameControl').touched && imageForm.get('nameControl').errors"  class="alert alert-danger"  >
+          <div *ngIf="imageForm.get('nameControl').errors.required"  > name is required </div>
+          <div *ngIf=" imageForm.get('nameControl').errors.minlength"> name must be at least 3 characters</div>
+          <div *ngIf=" imageForm.get('nameControl').errors.maxlength"> name must be at most 20 characters</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Cancel</button>
+    <button mat-button (click)="saveDrawingLocal()">Download</button>
+  </div>
+</div>

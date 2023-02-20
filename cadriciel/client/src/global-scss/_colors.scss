@@ -1,0 +1,24 @@
+@import '~@angular/material/theming';
+@import '../styles.scss';
+
+
+// General
+$selected: $accent;
+
+// Text
+$text-primary: rgba(255,255,255,1);
+$text-secondary: rgba(255,255,255,.6);
+
+// Workspace
+$workspace: rgb(136, 136, 136);
+
+// Lateral Bar
+$lateral-bar: $primary-lighter;
+$selected-lateral-bar: $primary;
+$hovered-lateral-bar: $primary-darker;
+
+// Pannel
+$pannel: $primary;
+
+// Borders and lines
+$borders: #BDBDBD;

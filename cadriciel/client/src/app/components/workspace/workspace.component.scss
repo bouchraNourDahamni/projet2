@@ -1,0 +1,65 @@
+.workspace{
+  position:center;
+  z-index:500;
+  cursor: auto;
+}
+.cursor {
+  opacity: 0.5;
+  background: white;
+  border: 1px solid;
+  border-color: black;
+  position: absolute;
+  pointer-events: none;
+  visibility: hidden;
+}
+.grid{
+  pointer-events: none;  
+}
+
+.cursor-eraser{
+  cursor: none;
+}
+
+.cursor-line{
+  cursor: crosshair;
+}
+
+.cursor-text{
+  cursor: text;
+}
+
+.cursor-pencil{
+  cursor: url("tool-cursors/pencil.svg") 0 24, auto;
+}
+.cursor-brush{
+  cursor: url("tool-cursors/brush.svg") 0 24, auto;
+}
+.cursor-pen{
+  cursor: url("tool-cursors/pen.svg") 0 24, auto;
+}
+.cursor-feather{
+  cursor: url("tool-cursors/calligraphy.svg") 0 24, auto;
+}
+.cursor-aerosol{
+  cursor: url("tool-cursors/spray-paint.svg") 0 24, auto;
+}
+.cursor-shape{
+  cursor: crosshair;
+}
+.cursor-selection{
+  cursor: auto;
+}
+.cursor-colorBucket{
+  cursor: url("tool-cursors/paint-bucket.svg") 0 24, auto;
+}
+.cursor-pipette{
+  cursor: url("tool-cursors/eyedropper.svg") 0 24, auto;
+}
+.cursor-stamp{
+  cursor: grab;
+}
+.cursor-wait{
+  cursor: wait;
+}
+
+

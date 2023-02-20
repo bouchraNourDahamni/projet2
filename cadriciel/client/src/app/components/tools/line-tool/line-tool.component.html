@@ -1,0 +1,71 @@
+<div>
+  <h3> Line </h3>
+  <label> Line width: </label> {{width}}px
+  <mat-slider
+    thumbLabel
+    tickInterval="{{sliderTickLinewidthInterval}}"
+    min="{{minSliderLinewidthValue}}"
+    max="{{maxSliderLinewidthValue}}"
+    value="{{width}}"
+    #linewidthSlider (input)="setLinewidth(linewidthSlider.value)">
+  </mat-slider>
+  <br>
+  <label id="type-radio-group-label">Line</label>
+  <mat-radio-group
+    aria-labelledby="type-radio-group-label"
+    class="mat-radio-group"
+    [(ngModel)]="lineMode">
+    <mat-radio-button
+      class="mat-radio-button"
+      value="full"
+      (input)="setLineTexture('full')">
+      Continuous
+    </mat-radio-button>
+    <mat-radio-button
+      class="mat-radio-button"
+      value="dot"
+      (input)="setLineTexture('dot')">
+      Dotted
+    </mat-radio-button>
+    <mat-radio-button
+      class="mat-radio-button"
+      value="dash"
+      (input)="setLineTexture('dash')">
+      Dashed
+    </mat-radio-button>
+  </mat-radio-group>
+  <label id="type-radio-group-label">Corners</label>
+  <mat-radio-group
+    aria-labelledby="type-radio-group-label"
+    class="mat-radio-group"
+    [(ngModel)]="cornerMode">
+    <mat-radio-button
+      class="mat-radio-button"
+      value="sharp"
+      (input)="setMode('sharp')">
+      Sharp
+    </mat-radio-button>
+    <mat-radio-button
+      class="mat-radio-button"
+      value="round"
+      (input)="setMode('round')">
+      Round
+    </mat-radio-button>
+    <mat-radio-button
+      class="mat-radio-button"
+      value="vertice"
+      (input)="setMode('vertice')">
+      Vertices
+    </mat-radio-button>
+  </mat-radio-group>
+  <div [ngClass]= "{'invisible': currentMode!=='vertice'}">
+    <label> Vertex Radius: </label>{{verticesSlider.value}}
+    <mat-slider
+    thumbLabel
+    tickInterval="{{sliderTickVerticesInterval}}"
+    min="{{minSliderVerticesValue}}"
+    max="{{maxSliderVerticesValue}}"
+    #verticesSlider (input)="setVertexRadius(verticesSlider.value)">
+    </mat-slider>
+  </div>
+</div>

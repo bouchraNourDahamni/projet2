@@ -1,0 +1,34 @@
+<div>
+  <h3> Text </h3>
+  <label>Text font</label>
+  <mat-select value="Lato">
+    <mat-option (click)="setFont('Lato')" value="Lato">Lato</mat-option>
+    <mat-option (click)="setFont('Oswald')" value="Oswald">Oswald</mat-option>
+    <mat-option (click)="setFont('Raleway')" value="Raleway">Raleway</mat-option>
+    <mat-option (click)="setFont('Roboto')" value="Roboto">Roboto</mat-option>
+    <mat-option (click)="setFont('Gamja Flower')" value="Gamja Flower">Gamja Flower</mat-option>
+  </mat-select>
+  <br><br>
+  <label>Text size: </label>{{size.value}}px
+  <mat-slider
+    thumbLabel
+    tickInterval="{{sliderTickTextSizeInterval}}"
+    min="{{minSliderTextSizeValue}}"
+    max="{{maxSliderTextSizeValue}}"
+    value="11"
+    #size (input)="setSize(size.value)">
+  </mat-slider>
+  <br>
+  <mat-checkbox labelPosition='before' (change)="activateBold()" [(ngModel)] = "isBold">Bold Text</mat-checkbox>
+  <br>
+  <mat-checkbox labelPosition='before' (change)="activateItalic()" [(ngModel)] = "isItalic">Italic Text</mat-checkbox>
+  <br>
+  <br>
+  <label>Align</label>
+  <mat-select value="left">
+    <mat-option (click)="setTextAlignement('left')" value="left">Left</mat-option>
+    <mat-option (click)="setTextAlignement('middle')" value="middle">Center</mat-option>
+    <mat-option (click)="setTextAlignement('end')" value="right">Right</mat-option>
+  </mat-select>
+</div>
+

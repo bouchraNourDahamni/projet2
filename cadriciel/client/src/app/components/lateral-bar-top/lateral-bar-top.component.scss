@@ -1,0 +1,33 @@
+@import "../../../global-scss/_colors";
+@import "../../../global-scss/_mixins";
+
+
+.icon-top {
+    z-index: 1000;
+    position: relative;
+
+  button {
+    @include button-dimensions;
+    border:none;
+    }
+  
+    button:hover {
+      background-color: $hovered-lateral-bar;
+      border-radius: 6px 0px 0px 6px ;
+    }
+
+  .mat-button {
+    @include button-dimensions;
+  }
+  
+  .no-pannel:hover {
+    background-color: $hovered-lateral-bar;
+    border-radius: 10px ;
+  }
+  
+  .selected{
+    background-color: $selected-lateral-bar;
+    border-radius: 6px 0px 0px 6px ;
+  }
+
+}

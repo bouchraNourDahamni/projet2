@@ -1,0 +1,56 @@
+<div>
+  <h3> Stamp </h3>
+  <label> Scale: </label> {{size}}
+  <mat-slider
+    thumbLabel
+    tickInterval="{{sliderWidthTickInterval}}"
+    min="{{minSliderWidthValue}}"
+    max="{{maxSliderWidthValue}}"
+    [step]="sliderStepValue"
+    value='{{size}}'
+    #linewidthSliderScale (input)="setSize(linewidthSliderScale.value)">
+  </mat-slider>
+  <br>
+  <label id="type-radio-group-label">Textures</label>
+  <mat-radio-group
+    aria-labelledby="type-radio-group-label"
+    class="mat-radio-group"
+    [(ngModel)]="stamp">
+    <mat-radio-button
+      class="mat-radio-button"
+      value=""
+      (input)="setStampTexture('none')">
+      None
+    </mat-radio-button>
+    <mat-radio-button
+      class="mat-radio-button"
+      value="stamp1"
+      (input)="setStampTexture('stamp1')">
+      Breakfast
+    </mat-radio-button>
+    <mat-radio-button
+      class="mat-radio-button"
+      value="stamp2"
+      (input)="setStampTexture('stamp2')">
+      Smiley
+    </mat-radio-button>
+    <mat-radio-button
+      class="mat-radio-button"
+      value="stamp3"
+      (input)="setStampTexture('stamp3')">
+      Kiwi
+    </mat-radio-button>
+    <mat-radio-button
+      class="mat-radio-button"
+      value="stamp4"
+      (input)="setStampTexture('stamp4')">
+      Atomic
+    </mat-radio-button>
+    <mat-radio-button
+      class="mat-radio-button"
+      value="stamp5"
+      (input)="setStampTexture('stamp5')">
+      Rocket
+    </mat-radio-button>
+  </mat-radio-group>
+</div>

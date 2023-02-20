@@ -1,0 +1,11 @@
+<div>
+  <h3> Eraser </h3>
+  <label> Eraser Size: </label>{{linewidthSlider.value}}px
+  <mat-slider
+    thumbLabel
+    tickInterval="{{sliderTickInterval}}"
+    min="{{minSliderValue}}"
+    max="{{maxSliderValue}}"
+    #linewidthSlider (input)="setSize(linewidthSlider.value)">
+  </mat-slider>
+</div>

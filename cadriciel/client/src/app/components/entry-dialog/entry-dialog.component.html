@@ -1,0 +1,17 @@
+<div class="entry">
+    <h2 mat-dialog-title><b>Welcome to PolyDrawing!</b></h2>
+    <p>
+      The PolyDrawing application is a web based project accomplished by second year students
+      at <i>École Polytechnique de Montréal</i> in order to recreate a drawing application.
+    </p>
+    <h2 mat-dialog-title> </h2>
+    <div>
+      To have access to the user guide click on <i class="fa fa-question-circle" aria-hidden="true"></i>.
+    </div><br>
+    <div class="position">
+    <input type="checkbox" (change) = "changeValue()"> Don't show this message again
+    </div>
+    <mat-dialog-actions>
+        <button mat-button (click) = "closeDialog()">Okay</button>
+    </mat-dialog-actions>
+</div>

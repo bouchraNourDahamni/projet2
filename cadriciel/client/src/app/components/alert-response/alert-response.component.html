@@ -1,0 +1,14 @@
+<div class='pop-up-container'>
+  <div>
+    <i class="fas fa-exclamation-triangle" > </i>
+  </div>
+  <div mat-dialog-content>
+    <br/>
+    {{message}}
+    <br/>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">No</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Yes</button>
+  </div>
+</div>

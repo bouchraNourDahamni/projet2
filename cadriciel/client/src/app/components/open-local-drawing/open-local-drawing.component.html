@@ -1,0 +1,13 @@
+<div>
+    <div>
+        Open File
+    </div>
+    <div class="form-group" mat-dialog-content>
+        <input type="file" (change)="filesUploads($event.target.files)" accept=".svg">
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="closeDialog()"> Close </button>
+        <button mat-button (click)=" openLocalDrawing()"> Open Drawing </button> 
+    </div>
+   
+</div>

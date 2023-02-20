@@ -1,0 +1,35 @@
+<div>
+    <div>New Drawing</div>
+    <div>
+        <mat-form-field style="width: 20%" floatPlaceholder="never">
+            <input type='number' matInput #heightInput placeholder="height" [(ngModel)]="height" (input)="unsubDim()"/>
+        </mat-form-field>
+        <mat-form-field style="width: 20%" floatPlaceholder="never">
+            <input type='number' matInput  #widthInput placeholder="width" [(ngModel)]="width" (input)="unsubDim()"/>
+        </mat-form-field>
+    </div>
+    <div>
+    <div>Background Color:
+        <br>
+        <mat-form-field style="width: 40%" floatPlaceholder="never">
+            <input matInput #hexValueInput placeholder="Hex" [(ngModel)]="hexValue" (input)="updateHex()"/>
+        </mat-form-field>
+        <div>
+            <mat-form-field  style="width: 10%" floatPlaceholder="never">
+                <input type='number' matInput #RgbaValueInput placeholder="Red" [(ngModel)]="rgbValue.red" (input)="updateRgb()"/>
+            </mat-form-field>
+            <mat-form-field  style="width: 10%" floatPlaceholder="never">
+                <input type='number' matInput #RgbaValueInput placeholder="Green" [(ngModel)]="rgbValue.green" (input)="updateRgb()"/>
+            </mat-form-field>
+            <mat-form-field  style="width: 10%" floatPlaceholder="never">
+                <input type='number' matInput #RgbaValueInput placeholder="Blue" [(ngModel)]="rgbValue.blue" (input)="updateRgb()"/>
+            </mat-form-field>
+        </div>
+        <canvas width="150" height="150" #canvasval  [class.displayData]="displayData" (click)="updatePalette($event)"></canvas>
+        <div class="showColor" [ngStyle]="{'background-color': colorPreview}"></div><br>
+    </div>
+    <div>
+        <button mat-button (click)="closeDialog()">Cancel</button>
+        <button mat-button class="confirm" (click)="createDrawing()">Create Drawing</button>
+    </div>
+</div>

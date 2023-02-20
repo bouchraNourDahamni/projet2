@@ -1,0 +1,13 @@
+<div>
+  <h3> Pencil </h3>
+  <label> Line width: </label> {{width}}px
+  <mat-slider
+    thumbLabel
+    tickInterval="{{sliderTickInterval}}"
+    min="{{minSliderValue}}"
+    max="{{maxSliderValue}}"
+    value="{{width}}"
+    #linewidthSlider
+    (input)="setLinewidth(linewidthSlider.value)">
+  </mat-slider>
+</div>

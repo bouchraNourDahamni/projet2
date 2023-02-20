@@ -1,0 +1,147 @@
+<div class="flex-container">
+    <div class= "icon-top">
+        <button mat-button (click)="toolSelector('selection')"
+        matTooltip="Selection"
+        matTooltipPosition="right"
+        matTooltipClass="lateral-bar"
+        [ngClass]= "{'selected': tool==='selection'
+                    }">
+            <i class="far fa-object-ungroup fa-lg"></i>
+        </button>
+    </div>
+    <div class= "icon-top">
+        <button mat-button [matMenuTriggerFor]="pencilMenu"
+        matTooltip="Pencils"
+        matTooltipPosition="right"
+        matTooltipClass="lateral-bar"
+        [ngClass]= "{'selected': tool==='pencil' ||
+                                 tool==='brush' ||
+                                 tool==='pen' ||
+                                 tool==='feather' ||
+                                 tool==='aerosol'
+                    }">
+            <i class="fas fa-pencil-alt fa-lg"></i>
+        </button>
+        <mat-menu #pencilMenu="matMenu">
+            <button mat-menu-item (click)="toolSelector('pencil')">Pencil</button>
+            <button mat-menu-item (click)="toolSelector('brush')">Brush</button>
+            <button mat-menu-item (click)="toolSelector('pen')">Pen</button>
+            <button mat-menu-item (click)="toolSelector('feather')">Calligraphy</button>
+            <button mat-menu-item (click)="toolSelector('aerosol')">Spraypaint</button>
+        </mat-menu>
+    </div>
+    <div class= "icon-top">
+        <button mat-button (click)="toolSelector('eraser')"
+        matTooltip="Eraser"
+        matTooltipPosition="right"
+        matTooltipClass="lateral-bar"
+        [ngClass]= "{'selected': tool==='eraser'
+                    }">
+            <i class="fas fa-eraser fa-lg"></i>
+        </button>
+    </div>
+    <div class= "icon-top">
+        <button mat-button [matMenuTriggerFor]="shapeMenu"
+        matTooltip="Shapes"
+        matTooltipPosition="right"
+        matTooltipClass="lateral-bar"
+        [ngClass]= "{'selected': tool==='rectangle' ||
+                                 tool==='ellipse' ||
+                                 tool==='polygon'
+                    }">
+            <i class="fas fa-shapes fa-lg"></i>
+        </button>
+        <mat-menu #shapeMenu="matMenu">
+            <button mat-menu-item (click)="toolSelector('rectangle')">Rectangle</button>
+            <button mat-menu-item (click)="toolSelector('ellipse')">Ellipse</button>
+            <button mat-menu-item (click)="toolSelector('polygon')">Polygon</button>
+        </mat-menu>
+    </div>
+    <div class= "icon-top">
+        <button mat-button (click)="toolSelector('line')"
+        matTooltip="Line"
+        matTooltipPosition="right"
+        matTooltipClass="lateral-bar"
+        [ngClass]= "{'selected': tool==='line'
+                    }">
+            <i class="fas fa-draw-polygon fa-lg"></i>
+        </button>
+    </div>
+    <div class= "icon-top">
+        <button mat-button (click)="toolSelector('text')"
+        matTooltip="Text"
+        matTooltipPosition="right"
+        matTooltipClass="lateral-bar"
+        [ngClass]= "{'selected': tool==='text'
+                    }">
+            <i class="fas fa-text-height fa-lg"></i>
+        </button>
+    </div>
+    <div class= "icon-top">
+        <button mat-button [matMenuTriggerFor]="colorMenu"
+        matTooltip="Color"
+        matTooltipPosition="right"
+        matTooltipClass="lateral-bar"
+        [ngClass]= "{'selected': tool==='colorApplicator' ||
+                                 tool==='colorBucket'
+                    }">
+            <i class="fas fa-fill-drip fa-lg"></i>
+        </button>
+        <mat-menu #colorMenu="matMenu">
+            <button mat-menu-item (click)="toolSelector('colorApplicator')">Color Applicator</button>
+            <button mat-menu-item (click)="toolSelector('colorBucket')">Color Bucket</button>
+        </mat-menu>
+    </div>
+    <div class= "icon-top">
+        <button mat-button (click)="toolSelector('pipette')"
+        matTooltip="Eye-Dropper"
+        matTooltipPosition="right"
+        matTooltipClass="lateral-bar"
+        [ngClass]= "{'selected': tool==='pipette'
+                    }">
+            <i class="fas fa-eye-dropper fa-lg"></i>
+        </button>
+    </div>
+    <div class= "icon-top">
+        <button mat-button (click)="toolSelector('stamp')"
+        matTooltip="Stamp"
+        matTooltipPosition="right"
+        matTooltipClass="lateral-bar"
+        [ngClass]= "{'selected': tool==='stamp'
+                    }">
+            <i class="fas fa-stamp fa-lg"></i>
+        </button>
+    </div>
+    <div class= "icon-top">
+        <button mat-button (click)="toolSelector('grid')"
+        matTooltip="Grid"
+        matTooltipPosition="right"
+        matTooltipClass="lateral-bar"
+        [ngClass]= "{'selected': tool==='grid'
+                    }">
+            <i class="fas fa-border-all fa-lg"></i>
+        </button>
+    </div>
+    <div>
+      <div class="icon-top">
+        <div class= "undo-redo">
+            <button mat-button [disabled]='!canUndo' (click)="undo()"
+            matTooltip="Undo"
+        matTooltipPosition="right"
+        matTooltipClass="lateral-bar">
+                <i class="fas fa-undo"></i>
+            </button>
+        </div>
+      </div>
+      <div class="icon-top">
+        <div class = "undo-redo">
+            <button mat-button [disabled]='!canRedo' (click)="redo()"
+            matTooltip="Redo"
+            matTooltipPosition="right"
+        matTooltipClass="lateral-bar">
+                <i class="fas fa-redo"></i>
+            </button>
+        </div>
+      </div>
+  </div>
+</div>

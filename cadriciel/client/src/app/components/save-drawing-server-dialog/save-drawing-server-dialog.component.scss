@@ -1,0 +1,33 @@
+.alert{
+  color:red;
+  font-size: 12px;
+}
+.add{
+  cursor: pointer;
+}
+.icon-bottom button {
+  width: 40px;
+  height: 40px;
+  background-color:rgb(255, 250, 255);
+  border:none;
+}
+.icon-bottom button:hover {
+  background-color: rgb(99, 150, 150);
+  border-radius:10px;
+}
+.hover-effect {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 10;
+  left:60px;
+}
+
+.form-group {
+  margin-top: 15px;
+}

@@ -1,0 +1,25 @@
+<div>
+    <h3> Spraypaint </h3>
+    <label> Number of emissions per second </label>
+    <br>
+    <mat-slider
+      thumbLabel
+      tickInterval="{{sliderSprayInterval}}"
+      min="{{minSpraySliderValue}}"
+      max="{{maxSpraySliderValue}}"
+      value="{{sprayPerSecond}}"
+      #sprayPerSecondSlider
+      (input)="setSprayPerSecond(sprayPerSecondSlider.value)">
+    </mat-slider>
+    <br>
+    <label> Spray diameter: </label> {{sprayDiameterSlider.value}}
+    <mat-slider
+      thumbLabel
+      tickInterval="{{sliderDiameterInterval}}"
+      min="{{minDiameterSliderValue}}"
+      max="{{maxDiameterSliderValue}}"
+      value="{{diameter}}"
+      #sprayDiameterSlider
+      (input)="setSprayDiameter(sprayDiameterSlider.value)">
+    </mat-slider>
+  </div>

@@ -1,0 +1,46 @@
+import { expect } from 'chai';
+import { ISVGImage } from '../../../client/src/app/interfaces/SVGImage';
+import { container } from '../inversify.config';
+import Types from '../types';
+import { ImageService } from './image.service';
+
+const service: ImageService = container.get<ImageService>(Types.DataService);
+
+describe.only('DataService', () => {
+  const imageTest: ISVGImage = {image: '', imageName: '', imageTags: ['']};
+  const imageBlabla: ISVGImage = {image: '', imageName: 'blabla', imageTags: ['yes', '']};
+  const imageBloublou: ISVGImage = {image: '', imageName: 'bloublou', imageTags: ['', 'yack']};
+
+  it ('#addImage should succefully create an image', () => {
+    service.addImage(imageTest);
+
+    expect(service.arrayImages).to.contain(imageTest);
+    service.arrayImages.pop();
+    });
+
+  it ('#filterImage should check if the length of the array returned is correct', () => {
+    service.arrayImages = [imageTest, imageBlabla, imageBloublou];
+    const tagFilter: string[] = ['yes', 'yack'];
+    service.filterImage(tagFilter);
+    expect(service.filterImage).to.be.length(1);
+  });
+
+  it ('#filterImage should check if the length of the array returned is correct', () => {
+    service.arrayImages = [imageTest, imageBlabla, imageBloublou];
+    const tagFilter: string[] = ['yes', 'yack'];
+    service.filterImage(tagFilter);
+    expect(service.filterImage).to.be.length(1);
+  });
+
+  it ('#filterImage should not go in the else branche of not inclued ', () => {
+    service.arrayImages = [imageTest, imageBlabla, imageBloublou];
+    const tagFilter: string[] = ['', ''];
+    service.filterImage(tagFilter);
+    expect(service.filterImage).to.be.length(1);
+  });
+
+  it('#addTag should check length of the tag array', () => {
+    service.addTag(imageBloublou);
+    expect(service.tags).to.be.length(2);
+  });
+});

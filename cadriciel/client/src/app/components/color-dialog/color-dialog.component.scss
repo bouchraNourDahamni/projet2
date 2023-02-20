@@ -1,0 +1,39 @@
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display:inline-block;
+}
+input {
+  width:150px;
+}
+.color {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+}
+canvas {
+  width:150px;
+  height:150px;
+  cursor:crosshair;
+}
+.showColor {
+  position:static;
+  width:40px;
+  height:40px;
+  border: 1px solid black;
+  position: relative; right: -300px; bottom: 60px;
+}
+.displayData {
+  display:block;
+}
+.confirm {
+  float: right;
+}
+@media only screen and (max-width :150px) {
+  .main {
+    flex-direction: column;
+  }
+}
+

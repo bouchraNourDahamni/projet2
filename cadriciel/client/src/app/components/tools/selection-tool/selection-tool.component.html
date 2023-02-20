@@ -1,0 +1,31 @@
+<div>
+    <h3> Selection </h3>
+    <button mat-button (click)="cut()" [disabled]="selectionIsEmpty">Cut</button>
+    <button mat-button (click)="copy()" [disabled]="selectionIsEmpty">Copy</button>
+    <button mat-button (click)="paste()" [disabled]="clipboardIsEmpty">Paste</button>
+    <button mat-button (click)="duplicate()" [disabled]="selectionIsEmpty">Duplicate</button>
+    <button mat-button (click)="delete()" [disabled]="selectionIsEmpty">Delete</button>
+    <button mat-button (click)="selectAll()">Select all</button>
+    <br>
+    <br>
+    <mat-checkbox labelPosition="before" (change)="onToggleMag()" [(ngModel)]="magIsOn">Magnetism</mat-checkbox>
+    <br>
+    <br>
+    <div [ngClass]= "{'hidden': !magIsOn}">
+      <mat-form-field>
+        <mat-label>Control Point</mat-label>
+        <mat-select [(value)]="translateControlPoint">
+          <mat-option value="topLeft" (click)="setControlPoints(translateControlPoint)">Top Left</mat-option>
+          <mat-option value="topCenterRight" (click)="setControlPoints(translateControlPoint)">Top Center</mat-option>
+          <mat-option value="topRight" (click)="setControlPoints(translateControlPoint)">Top Right</mat-option>
+          <mat-option value="rightCenterBot" (click)="setControlPoints(translateControlPoint)">Right Center</mat-option>
+          <mat-option value="botRight" (click)="setControlPoints(translateControlPoint)">Bottom Right</mat-option>
+          <mat-option value="botCenterLeft" (click)="setControlPoints(translateControlPoint)">Bottom Center</mat-option>
+          <mat-option value="botLeft" (click)="setControlPoints(translateControlPoint)">Bottom Left</mat-option>
+          <mat-option value="leftCenterTop" (click)="setControlPoints(translateControlPoint)">Left Center</mat-option>
+          <mat-option value="center" (click)="setControlPoints(translateControlPoint)">Center</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    
+</div>

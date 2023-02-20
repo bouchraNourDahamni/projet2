@@ -1,0 +1,36 @@
+
+<div class='color-pannel'>
+  <h3>Colors</h3>
+  <button mat-raised-button (click)="openPrimaryColorModifier()" [ngStyle]="{'background-color': primary}"></button>
+    Fill
+  <button mat-button (click)="swapColors()">
+    <i class="fas fa-retweet fa-sm"></i>
+  </button>
+  <br>
+  <label>Transparency:</label> {{primaryOpacity}}%
+  <mat-slider
+    thumbLabel
+    tickInterval="{{sliderTickFillTransparencyInterval}}"
+    min="{{minSliderFillTransparencyValue}}"
+    max="{{maxSliderFillTransparencyValue}}"
+    value="100"
+    #fill (input)="setFillTransparency(fill.value)">
+  </mat-slider>
+
+<br/>
+<button mat-raised-button class="colorButton" (click)="openSecondaryColorModifier()" [ngStyle]="{'background-color': secondary}"></button>
+  Outline
+<br>
+<label>Transparency:</label> {{secondaryOpacity}}%
+<mat-slider
+  thumbLabel
+  tickInterval="{{sliderTickOutlineTransparencyInterval}}"
+  min="{{minSliderOutlineTransparencyValue}}"
+  max="{{maxSliderOutlineTransparencyValue}}"
+  value="100"
+  #outline (input)="setOutlineTransparency(outline.value)">
+</mat-slider>
+<button mat-raised-button (click)="openBackgroundColorModifier()" [ngStyle]="{'background-color': background}"></button>
+  Background
+</div>
+

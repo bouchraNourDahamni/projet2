@@ -1,0 +1,30 @@
+<div>
+    <h2 mat-dialog-title>Select Color</h2>
+    <mat-form-field style="width: 40%" floatPlaceholder="never">
+        <input matInput #hexValueInput placeholder="Hex" [(ngModel)]="hexValue" (input)="updateHex()"/>
+    </mat-form-field>
+    <div>
+        <mat-form-field  style="width: 10%" floatPlaceholder="never">
+            <input type='number' matInput #RgbaValueInput placeholder="Red" [(ngModel)]="rgbValue.red" (input)="updateRgb()"/>
+        </mat-form-field>
+        <mat-form-field  style="width: 10%" floatPlaceholder="never">
+            <input type='number' matInput #RgbaValueInput placeholder="Green" [(ngModel)]="rgbValue.green" (input)="updateRgb()"/>
+        </mat-form-field>
+        <mat-form-field  style="width: 10%" floatPlaceholder="never">
+            <input type='number' matInput #RgbaValueInput placeholder="Blue" [(ngModel)]="rgbValue.blue" (input)="updateRgb()"/>
+        </mat-form-field>
+    </div>
+    <canvas width="150" height="150" #canvasval (click)="updatePalette($event)"></canvas>
+    <br>
+    Recently used:
+    <br>
+    <div *ngFor="let color of colors | slice:0:10;" class= "dot">
+        <button (click) = "selectColor(color)" class="color" [ngStyle]="{'background-color': color}" ></button>
+    </div>
+    <div class="data hideData"></div>
+    <br>
+    <div class="showColor" [ngStyle]="{'background-color': colorPreview}"></div>
+    <button mat-button class="close" (click)="closeDialog()">Cancel</button>
+    <button mat-button class="confirm" (click) = "saveColor()">Apply</button>
+
+</div>

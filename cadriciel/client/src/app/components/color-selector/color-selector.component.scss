@@ -1,0 +1,29 @@
+.invert {
+  color: rgb(0,0,0);
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+}
+.invert:hover, .invert:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: rgb(99, 150, 150);
+  border-radius:10px;
+}
+.mat-button, .mat-raised-button {
+  height:30px;
+  width:40px;
+}
+.color-pannel {
+  padding: 10px;
+  padding-bottom: 15px;
+}
+.dot {
+  height: 35px;
+  width: 35px;
+  background-color: rgb(187, 187, 187);
+  border-radius: 50%;
+  display:inline-block;
+}
